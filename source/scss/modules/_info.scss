@@ -1,0 +1,12 @@
+.info {
+	margin-top: 100px;
+	margin-bottom: 100px;
+
+	&__title {
+		max-width: 500px;
+	}
+
+	&__text {
+		text-align: justify;
+	}
+}

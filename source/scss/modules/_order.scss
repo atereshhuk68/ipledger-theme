@@ -1,0 +1,54 @@
+.order {
+	color: $white;
+	position: relative;
+
+	&__wave {
+		background-color: #333456;
+		background-image: radial-gradient(
+			52.47% 60.42% at 51.7% 39.58%,
+			#333456 0%,
+			#000000 100%
+		);
+		background-attachment: fixed;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+
+		img {
+			object-fit: contain;
+			object-position: right 50%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__container {
+		padding-top: 150px;
+		padding-bottom: 150px;
+		text-align: center;
+
+		@media (max-width: 575px) {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+	}
+	&__title {
+		color: inherit;
+	}
+	&__text {
+		color: inherit;
+		margin-top: 30px;
+		margin-bottom: 50px;
+		text-align: justify;
+	}
+}

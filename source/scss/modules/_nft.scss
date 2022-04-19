@@ -1,0 +1,68 @@
+.nft {
+	margin-top: 100px;
+	margin-bottom: 100px;
+
+	&__title {
+		a {
+			font-size: 26px;
+		}
+	}
+
+	&__text {
+		text-align: justify;
+	}
+
+	&__slider {
+		width: 920px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		z-index: 2;
+		left: -50%;
+		top: -25%;
+
+		@media (max-width: 1399px) {
+			width: 690px;
+			left: -30%;
+			top: -25%;
+		}
+
+		@media (max-width: 1199px) {
+			width: 100%;
+			top: 0;
+			left: 0;
+		}
+
+		@media (max-width: 575px) {
+			width: 100vw;
+			margin: 0 -0.75rem;
+		}
+
+		.swiper-slide {
+			background-position: center;
+			background-size: cover;
+			width: 400px;
+			height: 400px;
+			border-radius: 1.125em;
+			overflow: hidden;
+
+			@media (max-width: 1399px) {
+				width: 300px;
+				height: 300px;
+			}
+
+			@media (max-width: 575px) {
+				width: 250px;
+				height: 250px;
+			}
+		}
+
+		.swiper-pagination-bullet {
+			background-color: $primary;
+
+			&.swiper-pagination-bullet-active {
+				background-color: $primary;
+				opacity: 1;
+			}
+		}
+	}
+}

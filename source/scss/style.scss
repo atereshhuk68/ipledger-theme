@@ -1,0 +1,26 @@
+/*!
+ * Theme Name: ip-ledger-theme
+ * Author: Oleksandr Tereshchuk
+ * Author URI: https://github.com/atereshhuk68/ipledger-theme
+ * Version: 1.0.0
+*/
+@import "modules/basic";
+// Modal
+@import "modules/micromodal";
+// Main page
+@import "modules/header";
+@import "modules/service";
+@import "modules/about";
+@import "modules/advantage";
+@import "modules/nft";
+@import "modules/info";
+@import "modules/order";
+@import "modules/news";
+@import "modules/footer";
+// Main page
+
+// Single page
+@import "modules/singlepage";
+
+// Contacts
+@import "modules/contacts";
