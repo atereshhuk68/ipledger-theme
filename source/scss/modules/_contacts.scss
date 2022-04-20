@@ -30,11 +30,8 @@
 	&__email {
 		display: grid;
 		grid-template-columns: 24px 1fr;
-		gap: 1em;
-
-		@media (max-width: 767px) {
-			gap: 0.5em;
-		}
+		gap: 1rem;
+		max-width: 280px;
 
 		figure {
 			height: 24px;
@@ -52,11 +49,11 @@
 			margin: 0;
 		}
 
-		& > div {
-			display: grid;
-			grid-template-columns: 24px 1fr;
-			gap: 1rem;
-		}
+		// .wp-block-column {
+		// 	display: grid;
+		// 	grid-template-columns: 24px 1fr;
+		// 	gap: 1rem;
+		// }
 	}
 
 	&__city {
