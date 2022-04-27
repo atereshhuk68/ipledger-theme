@@ -87,7 +87,7 @@
 							<div class="hero header__hero d-flex flex-column">
 								<?php if ( is_front_page() ) { ?>
 									<h1 class="hero__title is--mainpage">The virtual world is <br> <span>CHANGING OUR LIVES</span></h1>
-									<button class="button button--primary hero__button" data-openmodalform="simple">Get a consultation</button>
+									<button class="button button--primary hero__button" data-openmodalform="simple" data-formtitle="Get a consultation">Get a consultation</button>
 								<? } else if ( is_archive() ) { ?>
 									<h1 class="hero__title"><?php the_archive_title(); ?></h1>
 								<? } else if ( is_single() ) { ?>

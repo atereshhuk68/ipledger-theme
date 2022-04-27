@@ -113,7 +113,7 @@ Template Post Type: page
 		</div>
 	</section>
 	<!-- Order -->
-	<?php get_template_part('template-parts/content', 'order')?>
+	<?php get_template_part('template/order')?>
 	<!-- Order -->
 	<section class="news">
 		<div class="container news__container">
