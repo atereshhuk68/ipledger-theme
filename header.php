@@ -3,6 +3,7 @@
 
 <head>
 	<meta name="ahrefs-site-verification" content="322785c190249e74913963b0c371b68722aef12a028d8bb9a62ddeb36f7a00bc">
+	<meta name="google-site-verification" content="1gZoN3OGl9cm0AGyzC-dhoqP80dqwWZilKAzhtKQx_Q" />
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
