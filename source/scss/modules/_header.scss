@@ -41,6 +41,10 @@
 		@media (max-width: 767px) {
 			min-height: 400px;
 		}
+
+		@media (max-width: 575px) {
+			min-height: 350px;
+		}
 	}
 
 	&.header--error {
@@ -98,6 +102,10 @@
 	.custom-logo {
 		@media (max-width: 575px) {
 			max-width: 100px;
+		}
+
+		@media (max-width: 400px) {
+			max-width: 80px;
 		}
 	}
 

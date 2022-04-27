@@ -12,21 +12,12 @@
 	}
 
 	&__title {
-		margin-bottom: 80px;
 		text-align: center;
-
-		@media (max-width: 991px) {
-			margin-bottom: 40px;
-		}
-
-		@media (max-width: 575px) {
-			margin-bottom: 1em;
-		}
 	}
 
 	&__text {
 		margin-bottom: 50px;
-		padding-left: 75px;
+		padding-left: 3em;
 		position: relative;
 		font-size: 1.25em;
 

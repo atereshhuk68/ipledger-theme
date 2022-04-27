@@ -1,8 +1,8 @@
-import Swiper, { Pagination, EffectCoverflow } from "swiper";
+import Swiper, { Pagination, EffectCoverflow, Autoplay } from "swiper";
 
 document.addEventListener("DOMContentLoaded", () => {
 	new Swiper("#ntfslider", {
-		modules: [ Pagination, EffectCoverflow ],
+		modules: [ Pagination, EffectCoverflow, Autoplay ],
 		effect: "coverflow",
 		grabCursor: true,
 		centeredSlides: true,
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			slideShadows: false,
 		},
 		autoplay: {
-			delay: 2000,
+			delay: 1500,
 			pauseOnMouseEnter: true,
 		},
 		speed: 1000,

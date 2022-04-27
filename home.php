@@ -101,14 +101,6 @@ Template Post Type: page
 						You will receive high-class expertise, high-quality and responsive service. We offer a fixed price, not an estimate, and we strive to never ask you to pay a bill you didn't expect. Welcome to the world of digital technology and IP. Web 3 marketing is already our reality.
 					</p>
 				</div>
-				<div class="col-12 d-flex justify-content-end">
-					<a href="" class="link--primary el-with-icon info__link">
-						Read more
-						<svg class="icon icon-arrow-right">
-							<use xlink:href="<?php bloginfo('template_url')?>/assets/img/sprite.svg#icon-arrow-right"></use>
-						</svg>
-					</a>
-				</div>
 			</div>
 		</div>
 	</section>
