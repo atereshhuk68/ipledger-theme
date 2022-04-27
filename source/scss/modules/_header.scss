@@ -43,6 +43,21 @@
 		}
 	}
 
+	&.header--error {
+		height: 100vh;
+
+		.error-title {
+			color: $white;
+			text-align: center;
+		}
+
+		.error-link {
+			color: $primary;
+			align-self: center;
+			text-decoration: underline;
+		}
+	}
+
 	&__wave {
 		background-color: #333456;
 		background-image: radial-gradient(

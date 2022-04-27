@@ -22,6 +22,8 @@
 					$class = 'header--single';
 				} else if ( is_page() ) {
 					$class = 'header--page';
+				} else if ( is_404() )  {
+					$class = 'header--error';
 				}
 			?>
 			<header class="header <?php echo $class?>">
@@ -93,6 +95,9 @@
 									<time class="hero__publish-date"><?php echo get_the_date('m.d.Y'); ?></time>
 								<? } else if ( is_page() ) { ?>
 									<h1 class="hero__title"><?php the_title();?></h1>
+								<? } else if ( is_404() ) { ?>
+									<h1 class="error-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'ipitledger-theme' ); ?></h1>
+									<a class="error-link" href="<?php echo home_url(); ?>">Back to main page</a>
 								<? } ?>
 							</div>
 						</div>
