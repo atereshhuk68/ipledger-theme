@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta name="ahrefs-site-verification" content="b86f36ceb43babe84e5d7f2901459abcd13b5a29d8345e70607f55761895f35c">
+	<meta name="ahrefs-site-verification" content="322785c190249e74913963b0c371b68722aef12a028d8bb9a62ddeb36f7a00bc">
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
