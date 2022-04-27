@@ -7,7 +7,18 @@ const _webpack = require("webpack-stream");
 require('dotenv').config();
 const path = require('path');
 
-let isDev = false;
+const args = require('yargs').argv;
+
+const mode = args.mode || null;
+
+//* Webpack Mode
+let isDev = null;
+
+if (mode) {
+	isDev = false;
+} else {
+	isDev = true;
+}
 
 //* Конвертация стилей
 const sassScss = () => {
