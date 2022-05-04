@@ -156,6 +156,12 @@ function ipitledger_theme_scripts() {
 	if ( is_singular("services") ) {
 		wp_enqueue_script( 'ipitledger-theme-virtual-select-js', get_template_directory_uri() . "/assets/js/virtual-select.js", null, true );
 	}
+
+	wp_enqueue_script( 'ipitledger-theme-lottie', "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.4/lottie.min.js", null, true );
+
+	if ( is_front_page() ) {
+		wp_enqueue_script( 'ipitledger-theme-sliders', get_template_directory_uri() . "/assets/js/sliders.js", null, true );
+	}
 	wp_enqueue_script( 'ipitledger-theme-all', get_template_directory_uri() . "/assets/js/all.js", null, $version, true );
 }
 add_action( 'wp_enqueue_scripts', 'ipitledger_theme_scripts' );

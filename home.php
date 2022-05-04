@@ -69,9 +69,9 @@ Template Post Type: page
 					</div>
 				</div>
 				<div class="col-12 col-xl-6">
-					<h2 class="section-title nft__title">NFT collection <a href="" class="link--primary">@ipitdoggies</a></h2>
+					<h2 class="section-title nft__title">NFT collection <a href="https://opensea.io/collection/ip-itdoggiesnft" target="_blank" class="link--primary">@ipitdoggies</a></h2>
 					<p class="text--default nft__text">We already have something to be proud of, the @ipitdoggies NFT collection released by us and it contains unique smart contracts developed by us. These provide strong copyright protection and allow you to receive royalties from each NFT card sale (non-exclusive license).</p>
-					<a href="" class="link--primary el-with-icon nft__link">
+					<a href="https://ipdoggie.com/" target="_blank" class="link--primary el-with-icon nft__link">
 						Visit website
 						<svg class="icon icon-arrow-right">
 							<use xlink:href="<?php bloginfo('template_url')?>/assets/img/sprite.svg#icon-arrow-right"></use>

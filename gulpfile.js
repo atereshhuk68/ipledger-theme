@@ -6,6 +6,7 @@ const _autoprefixer = require("gulp-autoprefixer");
 const _webpack = require("webpack-stream");
 require('dotenv').config();
 const path = require('path');
+const TerserPlugin = require("terser-webpack-plugin");
 
 const args = require('yargs').argv;
 
@@ -40,7 +41,8 @@ exports.styles = parallel(sassScss);
 let webpackConf = {
 	entry: {
 		all: path.resolve(__dirname, 'source/js/index.js'),
-		["virtual-select"]: path.resolve(__dirname, 'source/js/vs.js')
+		["virtual-select"]: path.resolve(__dirname, 'source/js/vs.js'),
+		sliders: path.resolve(__dirname, 'source/js/sliders.js')
 	},
 	watch: isDev,
 	mode: isDev ? 'development' : 'production',
@@ -69,14 +71,14 @@ let webpackConf = {
 	},
 	optimization: {
 		minimize: !isDev,
+		minimizer: [new TerserPlugin()],
 		mergeDuplicateChunks: !isDev,
 		splitChunks: {
 			cacheGroups: {
 				vendor: {
 					name: 'vendors',
-					test: /node_modules/,
-					chunks: 'all',
-					enforce: true
+					test: /[\\/]node_modules[\\/](swiper)[\\/]/,
+					chunks: 'all'
 				}
 			}
 		}

@@ -1,6 +1,4 @@
-import * as Lottie from 'lottie-web';
 import SmoothScroll from 'smooth-scroll';
-// import ScrollOut from "scroll-out";
 
 document.addEventListener('DOMContentLoaded', () => {
 	// Иконки на первом экране
@@ -8,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	serviceCards.forEach((el) => {
 		try {
-			const iconAnimation = Lottie.loadAnimation({
+			const iconAnimation = lottie.loadAnimation({
 				container: el.querySelector('.card__icon'),
 				renderer: 'svg',
 				loop: false,
