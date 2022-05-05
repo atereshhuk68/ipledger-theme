@@ -6,6 +6,25 @@ use Carbon_Fields\Field;
 add_action( 'carbon_fields_register_fields', 'register_carbon_fields' );
 
 function register_carbon_fields() {
+	// Site header bg
+	Container::make('theme_options', 'Site BG')
+	->add_fields(array(
+		Field::make( 'image', 'ipledger_video_mp4', 'MP4 BG' )
+		->set_type(array('video'))
+		->set_width(30),
+		Field::make( 'image', 'ipledger_video_webm', 'WEBM BG' )
+		->set_type(array('video'))
+		->set_width(30),
+		Field::make( 'image', 'ipledger_video_poster', 'Poster' )
+		->set_type(array('image'))
+		->set_width(30),
+	));
+	// Main page NFT slider
+	Container::make('post_meta', 'NFT Slider')
+	->where('post_template', '=', 'home.php')
+	->add_fields(array(
+		Field::make('media_gallery', 'nft_slides', 'Slides')
+	));
 	// Contacts
 	Container::make( 'theme_options', 'Contacts')
 	->add_fields( array(

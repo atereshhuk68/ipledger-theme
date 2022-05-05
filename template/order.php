@@ -1,5 +1,10 @@
 <section class="order">
-	<div class="order__wave"><img src="<?php bloginfo('template_url')?>/assets/img/wave.png" alt=""></div>
+	<div class="order__wave">
+		<video loop autoplay muted playinline style="width:100%; height: 100%; object-fit: cover;" poster="<?php echo $GLOBALS['video_poster']?>">
+			<source src="<?php echo $GLOBALS['video_webm']?>" type="video/webm">
+			<source src="<?php echo $GLOBALS['video_mp4']?>" type="video/mp4">
+		</video>
+	</div>
 	<div class="container order__container">
 		<div class="row justify-content-center">
 			<div class="col-12 col-lg-6">

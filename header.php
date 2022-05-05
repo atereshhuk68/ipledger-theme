@@ -27,7 +27,20 @@
 				}
 			?>
 			<header class="header <?php echo $class?>">
-				<div class="header__wave"><img src="<?php bloginfo('template_url')?>/assets/img/wave.png" alt=""></div>
+				<div class="header__wave">
+					<?php
+						global $video_mp4;
+						$video_mp4 = wp_get_attachment_url(carbon_get_theme_option('ipledger_video_mp4'));
+						global $video_webm;
+						$video_webm = wp_get_attachment_url(carbon_get_theme_option('ipledger_video_webm'));
+						global $video_poster;
+						$video_poster = wp_get_attachment_url(carbon_get_theme_option('ipledger_video_poster'));
+					?>
+					<video class="lazy" loop autoplay muted playinline style="width:100%; height: 100%; object-fit: cover;" poster="<?php echo $GLOBALS['video_poster']?>">
+						<source src="<?php echo $GLOBALS['video_webm']?>" type="video/webm">
+						<source src="<?php echo $GLOBALS['video_mp4']?>" type="video/mp4">
+					</video>
+				</div>
 				<div class="container header__container">
 					<div class="row justify-content-between align-items-center">
 						<div class="col-6 col-sm-3 col-lg-2">

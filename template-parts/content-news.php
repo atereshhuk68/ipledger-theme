@@ -1,7 +1,11 @@
 <div class="col-12 col-lg-4 mb-5 mb-lg-0">
 	<article id="post-<?php the_ID(); ?>" class="article news__article">
 		<div class="article__cover">
-			<img src="<?php bloginfo('template_url')?>/assets/img/blog_cover2.jpg" alt="Article cover">
+			<?php the_post_thumbnail('thumbnail', array(
+				"class" => "lazy",
+				"data-src" => get_the_post_thumbnail_url(get_the_ID(), 'full'),
+				"alt" => get_the_title()
+			)); ?>
 		</div>
 		<div class="article__inner">
 			<div class="article__date">

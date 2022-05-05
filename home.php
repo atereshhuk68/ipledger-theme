@@ -55,15 +55,19 @@ Template Post Type: page
 				<div class="col-12 col-xl-6">
 					<div id="ntfslider" class="swiper nft__slider">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide"><img src="<?php bloginfo('template_url')?>/assets/img/1.jpg" alt=""></div>
-							<div class="swiper-slide"><img src="<?php bloginfo('template_url')?>/assets/img/2.jpg" alt=""></div>
-							<div class="swiper-slide"><img src="<?php bloginfo('template_url')?>/assets/img/3.jpg" alt=""></div>
-							<div class="swiper-slide"><img src="<?php bloginfo('template_url')?>/assets/img/4.jpg" alt=""></div>
-							<div class="swiper-slide"><img src="<?php bloginfo('template_url')?>/assets/img/5.jpg" alt=""></div>
-							<div class="swiper-slide"><img src="<?php bloginfo('template_url')?>/assets/img/6.jpg" alt=""></div>
-							<div class="swiper-slide"><img src="<?php bloginfo('template_url')?>/assets/img/7.jpg" alt=""></div>
-							<div class="swiper-slide"><img src="<?php bloginfo('template_url')?>/assets/img/8.jpg" alt=""></div>
-							<div class="swiper-slide"><img src="<?php bloginfo('template_url')?>/assets/img/9.jpg" alt=""></div>
+							<?php
+								$sliders = carbon_get_the_post_meta('nft_slides');
+
+								foreach ($sliders as $slide) : setup_postdata($slide); ?>
+									<div class="swiper-slide">
+										<?php
+											$LQ = wp_get_attachment_image_src($slide, 'thumbnail')[0];
+											$HQ = wp_get_attachment_image_src($slide, 'full')[0];
+										?>
+										<img class="lazy" src="<?php echo $LQ;?>" data-src="<?php echo $HQ;?>" alt="NFT Slide">
+									</div>
+								<? endforeach; wp_reset_postdata();
+							?>
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>
@@ -116,12 +120,12 @@ Template Post Type: page
 			</div>
 			<div class="row">
 				<?php
-					$posts = get_posts([
+					$posts = get_posts(array(
 						'posts_per_page'   => 3,
 						'category_name'    => 'news',
 						'orderby'          => 'date',
 						'order'            => 'DESC'
-					]);
+					));
 
 					foreach ( $posts as $post ) :
 						setup_postdata( $post );
