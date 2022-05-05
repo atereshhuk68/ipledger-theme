@@ -72,12 +72,12 @@ let webpackConf = {
 	optimization: {
 		minimize: !isDev,
 		minimizer: [new TerserPlugin()],
-		mergeDuplicateChunks: !isDev,
+		mergeDuplicateChunks: true,
 		splitChunks: {
 			cacheGroups: {
-				vendor: {
+				vendors: {
 					name: 'vendors',
-					test: /[\\/]node_modules[\\/](swiper)[\\/]/,
+					test: /node_modules/,
 					chunks: 'all'
 				}
 			}
