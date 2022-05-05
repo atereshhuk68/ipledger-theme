@@ -36,7 +36,7 @@
 						global $video_poster;
 						$video_poster = wp_get_attachment_url(carbon_get_theme_option('ipledger_video_poster'));
 					?>
-					<video class="lazy" loop autoplay muted playinline style="width:100%; height: 100%; object-fit: cover;" poster="<?php echo $GLOBALS['video_poster']?>">
+					<video class="lazy" loop autoplay muted playsinline style="width:100%; height: 100%; object-fit: cover;" poster="<?php echo $GLOBALS['video_poster']?>">
 						<source src="<?php echo $GLOBALS['video_webm']?>" type="video/webm">
 						<source src="<?php echo $GLOBALS['video_mp4']?>" type="video/mp4">
 					</video>
