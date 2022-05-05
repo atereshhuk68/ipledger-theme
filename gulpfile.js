@@ -50,17 +50,16 @@ let webpackConf = {
 	output: {
 		filename: '[name].js',
 		path: path.join(__dirname, 'assets/js/'),
-		publicPath: '/'
 	},
 	module: {
 		rules: [{
 			test: /\.m?js$/,
-			exclude: /node_modules/,
+			exclude: /[\\/]node_modules[\\/]/,
 			use: {
 				loader: "babel-loader",
 				options: {
 					presets: ["@babel/preset-env"],
-					comments: false,
+					comments: !isDev,
 					compact: !isDev,
 					ignore: [
 						"source/assets/js/libs"
@@ -72,13 +71,14 @@ let webpackConf = {
 	optimization: {
 		minimize: !isDev,
 		minimizer: [new TerserPlugin()],
-		mergeDuplicateChunks: true,
+		mergeDuplicateChunks: !isDev,
 		splitChunks: {
 			cacheGroups: {
-				vendors: {
+				vendor: {
 					name: 'vendors',
-					test: /node_modules/,
-					chunks: 'all'
+					test: /[\\/]node_modules[\\/]/,
+					chunks: 'all',
+					enforce: true
 				}
 			}
 		}
