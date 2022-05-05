@@ -47,16 +47,6 @@
 			</div>
 		</footer>
 	</div>
-	<div id="spoke-root"></div>
-	<script>(function(d, s, id) {
-	var js, sjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//www.spoke.com/assets/widget.js";
-	sjs.parentNode.insertBefore(js, sjs);
-	}(document, 'script', 'spoke-widget-js'));</script>
-			<div class="spoke-widget" data-host="//www.spoke.com" data-type="company" data-id="6273e72804532cf5de03353f" data-width="404" data-height="230" data-scroll="no" data-frame-border="none"></div>
-			<div style="font-size: 9pt;"><a href="http://www.spoke.com/companies/ip-ledger-ltd-6273e72804532cf5de03353f">IP Ledger LTD</a> widget provided by <a href="http://www.spoke.com">Spoke</a></div>
 	<?php get_template_part('template/micromodal') ?>
 	</body>
 
