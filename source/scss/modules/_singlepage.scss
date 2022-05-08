@@ -4,8 +4,16 @@
 	margin-bottom: 2rem;
 
 	.wp-block-image {
-		margin-top: 1em;
-		margin-bottom: 1em;
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+
+		figcaption {
+			margin-bottom: 0;
+			text-align: center;
+			font-style: italic;
+			opacity: 0.5;
+			color: $dark;
+		}
 	}
 
 	hr {
@@ -17,8 +25,8 @@
 	h4 {
 		color: $dark;
 		line-height: 1.3;
-		margin-top: 1em;
-		margin-bottom: 0.5em;
+		margin-top: 0.5em;
+		margin-bottom: 0.25em;
 	}
 	h2 {
 		font-size: 2.25em;
@@ -44,9 +52,8 @@
 		font-size: 1.125em;
 		color: $dark;
 		line-height: 1.55;
-		margin-top: 1em;
-		margin-bottom: 1em;
-		text-align: justify;
+		padding: 0.5em 0;
+		margin: 0;
 
 		@media (max-width: 575px) {
 			font-size: 1em;
