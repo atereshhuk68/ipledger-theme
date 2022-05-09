@@ -71,13 +71,17 @@ function register_custom_posts_type() {
 	));
 }
 
-// Modify archive title
-function modify_archive_title ( $title, $original_title, $prefix) {
-	if ( is_post_type_archive('services')) {
-		$title = "All company " . $original_title;
-	}
-	return $title;
-}
-add_filter('get_the_archive_title', 'modify_archive_title', 10, 3);
 // Remove wp-container-random
 remove_filter( 'render_block', 'gutenberg_render_layout_support_flag', 10, 2 );
+// Remove wpcf7 script
+add_filter( 'wpcf7_load_js', '__return_false' );
+// Captcha
+function pine_scripts() {
+	if ( is_front_page() || is_single() ) {
+		if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
+			wpcf7_enqueue_scripts();
+			wp_enqueue_script( 'google-recaptcha' );
+		}
+	}
+}
+add_action( 'wp_enqueue_scripts', 'pine_scripts' );
