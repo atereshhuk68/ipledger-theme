@@ -10,7 +10,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-pagename="<?php echo get_the_title();?>">
 	<div class="_wrapper">
 		<div class="_content">
 			<?php

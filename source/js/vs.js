@@ -1,47 +1,21 @@
 import './libs/virtual-select.min.js';
-import { countriesOptions, classListOptions, patentNumbersListOptions } from './modules/vs-data';
+import './modules/ip-vs-init';
 
 document.addEventListener('DOMContentLoaded', () => {
-	VirtualSelect.init({
-		ele: '#select-classes',
-		options: classListOptions,
-		multiple: true,
-		search: true,
-		hasOptionDescription: true,
-		placeholder: 'Select class(es)',
-		showValueAsTags: true,
-	});
-
-	VirtualSelect.init({
-		ele: '#countries-list',
-		options: countriesOptions,
-		multiple: true,
-		search: true,
-		hasOptionDescription: true,
-		placeholder: 'Select one or more countries',
-		showValueAsTags: true,
-	});
-
-	VirtualSelect.init({
-		ele: '#patent-numbers',
-		options: patentNumbersListOptions,
-		multiple: true,
-		search: false,
-		hasOptionDescription: true,
-		placeholder: 'Select one or more countries',
-		showValueAsTags: true,
-		showSelectedOptionsFirst: true,
-		allowNewOption: true,
-	});
-
 	const changeRadio = (nodes) => Array.from(nodes).find((item) => item.checked);
 
 	// Custom solution check radiobutton
 	// Tabs
-	const customSolutionRadio = document.querySelectorAll('.country-selection__tabs input[name="custom-solution"]');
+	const customSolutionRadio = document.querySelectorAll(
+		'.country-selection__tabs input[name="custom-solution"]'
+	);
 	// Tab content
-	const countrySelectionBlocks = document.querySelectorAll('.country-selection__block');
-	const countryComplexRadio = document.querySelectorAll('.country-selection__block input[name="card-complex"]');
+	const countrySelectionBlocks = document.querySelectorAll(
+		'.country-selection__block'
+	);
+	const countryComplexRadio = document.querySelectorAll(
+		'.country-selection__block input[name="card-complex"]'
+	);
 
 	countryComplexRadio[0].setAttribute('checked', true);
 
@@ -72,12 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
-	const classesSelect = document.getElementById('select-classes');
-	const countriesSelect = document.getElementById('countries-list');
+	const btnFormTrigger = document.querySelector(
+		'button[data-openmodalform="trigger"]'
+	);
 
-	const btnFormTrigger = document.querySelector('button[data-openmodalform="trigger"]');
-
-	// Countries obj
+	// Countries abbr obj
 	const countryAbbr = {
 		eu: 'European Union',
 		madrid: 'Madrid system',
@@ -85,19 +58,38 @@ document.addEventListener('DOMContentLoaded', () => {
 		uk: 'United Kingdom',
 	};
 
+	function addListItem(text) {
+		return `<li>${text}</li>`;
+	}
+
 	btnFormTrigger.addEventListener('click', function () {
 		const classesListElement = document.createElement('ul');
 		const countriesListElement = document.createElement('ul');
 
-		function addListItem(text) {
-			return `<li>${text}</li>`;
-		}
+		const modalOrderACostEstimate = document.getElementById(
+			'modal-order-a-cost-estimate'
+		);
 
-		let classesValues, countriesValue;
+		// Hidden fields
+		const hiddenInputClasses = modalOrderACostEstimate.querySelector(
+			'input[name="selected-class"]'
+		);
+		const hiddenInputCountries = modalOrderACostEstimate.querySelector(
+			'input[name="selected-countries"]'
+		);
+		const hiddenInputNumbers = modalOrderACostEstimate.querySelector(
+			'input[name="selected-patents-numbers"]'
+		);
 
+		const classesSelect = document.getElementById('select-classes');
+		const countriesSelect = document.getElementById('countries-list');
+		const claimsList = document.getElementById('patent-numbers');
+
+		let classesValues, countriesValue, claimsNumbers;
+
+		// Обрати вибрані класи
 		if (classesSelect) {
 			classesValues = classesSelect.getSelectedOptions();
-
 			classesValues.forEach((element) => {
 				classesListElement.insertAdjacentHTML(
 					'beforeend',
@@ -105,20 +97,32 @@ document.addEventListener('DOMContentLoaded', () => {
 				);
 			});
 		}
-
+		// Обрати вибрані міста
 		if (countriesSelect) {
 			countriesValue = countriesSelect.getSelectedOptions();
-
 			countriesValue.forEach((element) => {
 				countriesListElement.insertAdjacentHTML(
 					'beforeend',
 					addListItem(element.label)
 				);
+
+				hiddenInputCountries.value += `${element.label} , `;
+			});
+		}
+		// Обрати вибрані числа
+		if (claimsList) {
+			claimsNumbers = claimsList.getSelectedOptions();
+			claimsNumbers.forEach((element) => {
+				hiddenInputNumbers.value += `${element.label} , `;
 			});
 		}
 
-		const userClassesContainer = document.querySelector('.consultation__user-classes');
-		const userCountriesContainer = document.querySelector('.consultation__user-countries');
+		const userClassesContainer = modalOrderACostEstimate.querySelector(
+			'.consultation__user-classes'
+		);
+		const userCountriesContainer = modalOrderACostEstimate.querySelector(
+			'.consultation__user-countries'
+		);
 
 		// Add HTML to form
 		const countryBlock = (abbr) => {
@@ -131,50 +135,59 @@ document.addEventListener('DOMContentLoaded', () => {
 					'beforeend',
 					`<p>${countryAbbr[abbr]}</p>`
 				);
+				hiddenInputCountries.value = '';
+				hiddenInputCountries.value = `${countryAbbr[abbr]}`;
 			} else {
 				userCountriesContainer.insertAdjacentElement('beforeend', abbr);
 			}
 		};
 
-		MicroModal.show('modal-consultation', {
+		MicroModal.show('modal-order-a-cost-estimate', {
 			onShow: (modal) => {
-				document.querySelector('.consultation__user-classes').classList.remove('is--hidden');
-				document.querySelector('.consultation__user-countries').classList.remove('is--hidden');
-				modal.querySelector('.modal__title').textContent = this.dataset.formtitle;
-				modal.querySelector('.hidden-field').value = this.dataset.formtitle;
+				modal.querySelector('.modal__title').textContent =
+					this.dataset.formtitle;
+				modal.querySelector('input[name="form-name"]').value =
+					this.dataset.formtitle;
 
+				// Додати заголовок для списку класів
 				if (classesSelect) {
 					userClassesContainer.insertAdjacentHTML(
 						'afterbegin',
 						'<strong>You have chosen these classes:</strong>'
 					);
-					userClassesContainer.insertAdjacentElement(
-						'beforeend',
-						classesListElement
-					);
+					if (classesValues.length) {
+						userClassesContainer.insertAdjacentElement(
+							'beforeend',
+							classesListElement
+						);
+						classesValues.forEach((item) => {
+							hiddenInputClasses.value += `${item.label} , `;
+						});
+					} else {
+						userClassesContainer.insertAdjacentHTML(
+							'beforeend',
+							'<strong>-</strong>'
+						);
+					}
 				}
 
-				if (userSolution == 'complex') {
-					switch (userCountrySelection) {
-						case 'eu':
-							countryBlock(userCountrySelection);
-							break;
-						case 'madrid':
-							countryBlock(userCountrySelection);
-							break;
-						default:
-							countryBlock(userCountrySelection);
-							break;
+				if (countriesSelect) {
+					if (userSolution == 'complex') {
+						countryBlock(userCountrySelection);
+					} else if (userSolution == 'manually') {
+						countryBlock(countriesListElement);
 					}
-				} else if (userSolution == 'manually') {
-					countryBlock(countriesListElement);
 				}
 			},
 			onClose: (modal) => {
 				userClassesContainer.innerHTML = '';
 				userCountriesContainer.innerHTML = '';
+				hiddenInputClasses.value = '';
+				hiddenInputCountries.value = '';
+				hiddenInputNumbers.value = '';
 			},
 			disableScroll: true,
+			disableFocus: true,
 		});
 	});
 });

@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "CupTeam Studio",
   "license": "ISC",
+	"scripts": {
+		"start": "gulp",
+		"build": "gulp --mode build"
+	},
   "devDependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",

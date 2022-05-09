@@ -42,14 +42,10 @@
 
 	&__link {
 		display: flex;
-		font-size: 0.825em;
+		font-size: 0.875em;
 		color: $white;
 		text-align: center;
 		font-weight: 700;
-
-		@media (max-width: 1399px) {
-			font-size: 0.75em;
-		}
 
 		@media (max-width: 991px) {
 			font-size: 1em;

@@ -13,6 +13,5 @@ get_header()
 			</div>
 		</div>
 	</div>
-	<?php get_template_part('template/order')?>
 </main>
 <?php get_footer();?>

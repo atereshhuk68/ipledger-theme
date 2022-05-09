@@ -68,11 +68,15 @@
 			text-decoration: underline;
 			color: $primary;
 		}
+
+		strong {
+			font-weight: 500;
+		}
 	}
 
 	ul {
 		margin: 0;
-		padding: 0;
+		padding: 0.5em 0;
 		list-style: none;
 
 		li {

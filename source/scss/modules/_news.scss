@@ -12,10 +12,6 @@
 		margin: 70px 0;
 	}
 
-	&__title {
-		margin-bottom: 50px;
-	}
-
 	&__article {
 		@media (min-width: 575px) and (max-width: 991px) {
 			display: grid;
@@ -25,7 +21,7 @@
 }
 
 .article {
-	min-height: 450px;
+	min-height: 350px;
 	height: 100%;
 	background-color: $white;
 	box-shadow: 0px 32px 100px rgba(0, 0, 0, 0.1);
@@ -63,12 +59,12 @@
 	&__date {
 		display: inline-flex;
 		margin-bottom: 0.825em;
-		font-size: 1.125em;
+		font-size: 0.875em;
 		color: #949494;
-		font-weight: 500;
+		font-weight: 400;
 	}
 	&__title {
-		font-size: 1.625em;
+		font-size: 1.5em;
 		font-weight: 700;
 		line-height: 1.2;
 		margin: 0;
