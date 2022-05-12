@@ -31,8 +31,8 @@
 					<div class="col-12 col-6 col-lg-3 footer__nav order-1 order-lg-2 mb-5 mb-lg-0">
 						<strong class="footer__list-title">Documents</strong>
 						<ul class="list footer__list">
-							<li class="list__item"><a href="<?php echo home_url('privacy-policy')?>" class="list__link">Privacy Policy</a></li>
-							<li class="list__item"><a href="<?php echo home_url('terms-and-conditions')?>" class="list__link">Terms and conditions</a></li>
+							<li class="list__item"><a href="<?php echo home_url('privacy-policy/')?>" class="list__link">Privacy Policy</a></li>
+							<li class="list__item"><a href="<?php echo home_url('terms-and-conditions/')?>" class="list__link">Terms and conditions</a></li>
 							<li class="list__item"><a href="https://github.com/ipledger" target="_blank" class="list__link">Github</a></li>
 						</ul>
 					</div>
