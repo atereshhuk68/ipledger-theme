@@ -816,9 +816,9 @@
 
 // Cards with propositions
 .proposition {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 1.5em;
+	// display: grid;
+	// grid-template-columns: 1fr 1fr 1fr;
+	// gap: 1.5em;
 
 	&-card {
 		border: 2px solid rgba($dark, 0.2);
@@ -827,6 +827,7 @@
 		padding: 3em 1.5em;
 		display: flex;
 		flex-direction: column;
+		align-self: stretch;
 
 		&__name {
 			font-size: 1.25em;
@@ -870,6 +871,11 @@
 
 		&__button {
 			max-width: 100%;
+			text-align: center;
+
+			&:hover {
+				text-decoration: none;
+			}
 		}
 	}
 }

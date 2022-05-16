@@ -36,4 +36,26 @@ document.addEventListener("DOMContentLoaded", () => {
 			},
 		},
 	});
+
+	new Swiper('#trademarkslider', {
+		slidesPerView: 1,
+		centeredSlides: true,
+		spaceBetween: 30,
+		initialSlide: 1,
+		autoHeight: true,
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true
+		},
+		breakpoints: {
+			1199: {
+				slidesPerView: 3,
+				initialSlide: false,
+			},
+			1399: {
+				slidesPerView: 3,
+				initialSlide: false,
+			}
+		},
+	})
 });

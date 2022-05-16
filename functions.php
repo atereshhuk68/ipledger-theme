@@ -145,7 +145,7 @@ function ipitledger_theme_styles() {
 	if ( is_singular("services") ) {
 		wp_enqueue_style( 'ipitledger-theme-virtual-select-css', get_template_directory_uri() . "/virtual-select.css", array(), null );
 	}
-	if ( is_front_page() ) {
+	if ( is_front_page() || is_single() ) {
 		wp_enqueue_style( 'ipitledger-theme-virtual-swiper-css', "https://unpkg.com/swiper@8/swiper-bundle.min.css", array(), null );
 	}
 
@@ -155,7 +155,7 @@ add_action( 'wp_enqueue_scripts', 'ipitledger_theme_styles' );
 
 function ipitledger_theme_scripts() {
 	$version = wp_get_theme()->get('Version');
-	
+
 	wp_enqueue_script( 'ipitledger-theme-vendors', get_template_directory_uri() . "/assets/js/vendors.js", null, $version, true );
 
 	if ( is_singular("services") ) {
@@ -164,7 +164,7 @@ function ipitledger_theme_scripts() {
 
 	wp_enqueue_script( 'ipitledger-theme-lottie', "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.4/lottie.min.js", array(), null, true );
 
-	if ( is_front_page() ) {
+	if ( is_front_page() || is_single() ) {
 		wp_enqueue_script( 'ipitledger-theme-swiper', "https://unpkg.com/swiper@8/swiper-bundle.min.js", array(), null, true );
 		wp_enqueue_script( 'ipitledger-theme-sliders', get_template_directory_uri() . "/assets/js/sliders.js", null, $version, true );
 	}

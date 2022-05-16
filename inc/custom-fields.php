@@ -99,19 +99,22 @@ function register_carbon_fields() {
 		))
 	))
 	->set_render_callback( function ($fields) { ?>
-		<div class="proposition">
-			<?php foreach($fields['cards_list'] as $card) :?>
-				<article class="proposition-card">
-					<strong class="proposition-card__name"><?php echo $card['card_proposition_name']?></strong>
-					<p class="proposition-card__plan"><?php echo $card['card_proposition_price']?></p>
-					<ul class="proposition-card__list proposition-list special">
-						<?php foreach($card['card_proposition_list'] as $listItem) :?>
-							<li class="proposition-list__item"><?php echo $listItem['list_item']?></li>
-						<?php endforeach; ?>
-					</ul>
-					<button class="button button--secondary proposition-card__button"><?php echo $card['card_proposition_button']?></button>
-				</article>
-			<?php endforeach; ?>
+		<div id="trademarkslider" class="swiper proposition">
+			<div class="swiper-wrapper">
+				<?php foreach($fields['cards_list'] as $card) :?>
+					<article class="proposition-card swiper-slide">
+						<strong class="proposition-card__name"><?php echo $card['card_proposition_name']?></strong>
+						<p class="proposition-card__plan"><?php echo $card['card_proposition_price']?></p>
+						<ul class="proposition-card__list proposition-list special">
+							<?php foreach($card['card_proposition_list'] as $listItem) :?>
+								<li class="proposition-list__item"><?php echo $listItem['list_item']?></li>
+							<?php endforeach; ?>
+						</ul>
+						<a href="#" class="button button--secondary proposition-card__button"><?php echo $card['card_proposition_button']?></a>
+					</article>
+				<?php endforeach; ?>
+			</div>
+			<div class="swiper-pagination proposition-pagination"></div>
 		</div>
 	<? });
 
