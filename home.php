@@ -111,30 +111,6 @@ Template Post Type: page
 	<!-- Order -->
 	<?php get_template_part('template/order')?>
 	<!-- Order -->
-	<section class="news">
-		<div class="container news__container">
-			<div class="row justify-content-center">
-				<div class="col-auto">
-					<h2 class="section-title news__title">Latest NEWS</h2>
-				</div>
-			</div>
-			<div class="row">
-				<?php
-					$posts = get_posts(array(
-						'posts_per_page'   => 3,
-						'category_name'    => 'news',
-						'orderby'          => 'date',
-						'order'            => 'DESC'
-					));
-
-					foreach ( $posts as $post ) :
-						setup_postdata( $post );
-						get_template_part( "template-parts/content", "news" );
-					endforeach;
-					wp_reset_postdata();
-				?>
-			</div>
-		</div>
-	</section>
+	<?php get_template_part('template/blog'); ?>
 </main>
 <?php get_footer();?>
