@@ -29,17 +29,10 @@
 			<header class="header <?php echo $class?>">
 				<div class="header__wave">
 					<?php
-						global $video_mp4;
-						$video_mp4 = wp_get_attachment_url(carbon_get_theme_option('ipledger_video_mp4'));
-						global $video_webm;
 						$video_webm = wp_get_attachment_url(carbon_get_theme_option('ipledger_video_webm'));
-						global $video_poster;
 						$video_poster = wp_get_attachment_url(carbon_get_theme_option('ipledger_video_poster'));
 					?>
-					<video class="lazy" loop autoplay muted playsinline style="width:100%; height: 100%; object-fit: cover;" poster="<?php echo $GLOBALS['video_poster']?>">
-						<source src="<?php echo $GLOBALS['video_webm']?>" type="video/webm">
-						<source src="<?php echo $GLOBALS['video_mp4']?>" type="video/mp4">
-					</video>
+					<video loading="lazy" class="lazy" preload="none" loop autoplay muted playsinline style="width:100%; height: 100%; object-fit: cover;" src="<?php echo $video_webm; ?>" poster="<?php echo $video_poster; ?>" type="video/webm"></video>
 				</div>
 				<div class="container header__container">
 					<div class="row justify-content-between align-items-center">

@@ -1,9 +1,10 @@
 <section class="order">
 	<div class="order__wave">
-		<video loop autoplay muted playinline style="width:100%; height: 100%; object-fit: cover;" poster="<?php echo $GLOBALS['video_poster']?>">
-			<source src="<?php echo $GLOBALS['video_webm']?>" type="video/webm">
-			<source src="<?php echo $GLOBALS['video_mp4']?>" type="video/mp4">
-		</video>
+		<?php
+				$video_webm = wp_get_attachment_url(carbon_get_theme_option('ipledger_video_webm'));
+				$video_poster = wp_get_attachment_url(carbon_get_theme_option('ipledger_video_poster'));
+			?>
+		<video loading="lazy" class="lazy" loop autoplay muted playsinline style="width:100%; height: 100%; object-fit: cover;" src="<?php echo $video_webm; ?>" poster="<?php echo $video_poster; ?>" type="video/webm"></video>
 	</div>
 	<div class="container order__container">
 		<div class="row justify-content-center">

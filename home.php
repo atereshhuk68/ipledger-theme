@@ -7,6 +7,7 @@ Template Post Type: page
 <?php get_header();?>
 <main class="main">
 	<section class="service">
+		<h2 hidden>Services</h2>
 		<div class="container service__container">
 			<div class="row">
 				<?php
@@ -16,7 +17,6 @@ Template Post Type: page
 						"order" => "ASC",
 						"orderby" => "menu_order"
 					));
-
 					foreach ($posts as $post) :
 						setup_postdata($post);
 					?>
