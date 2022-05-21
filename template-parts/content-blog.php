@@ -9,7 +9,7 @@
 		</div>
 		<div class="article__inner">
 			<div class="article__date">
-				<time datetime="<?php echo get_the_date('d.m.Y'); ?>">
+				<time datetime="<?php echo get_the_date('d-m-Y'); ?>">
 					<?php echo get_the_date('d.m.Y'); ?>
 				</time>
 			</div>

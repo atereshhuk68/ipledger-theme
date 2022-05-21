@@ -5,10 +5,10 @@
 				<h2 class="modal__title">Get a consultation</h2>
 				<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
 			</header>
-			<main class="modal__content">
+			<div class="modal__content">
 				<!-- <?php echo do_shortcode('[contact-form-7 id="101" title="Order a cost estimate"]')?> -->
 				<?php echo do_shortcode('[contact-form-7 id="174" title="Order a cost estimate"]')?>
-			</main>
+			</div>
 		</div>
 	</div>
 </div>
@@ -20,9 +20,9 @@
 				<h2 class="modal__title">Get a consultation</h2>
 				<button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
 			</header>
-			<main class="modal__content">
+			<div class="modal__content">
 				<?php echo do_shortcode('[contact-form-7 id="337" title="Get a consultation"]')?>
-			</main>
+			</div>
 		</div>
 	</div>
 </div>

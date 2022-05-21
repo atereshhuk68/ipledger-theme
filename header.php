@@ -105,7 +105,7 @@
 									<h1 class="hero__title"><?php the_archive_title(); ?></h1>
 								<? } else if ( is_single() ) { ?>
 									<h1 class="hero__title"><?php the_title();?></h1>
-									<time class="hero__publish-date"><?php echo get_the_date('m.d.Y'); ?></time>
+									<time class="hero__publish-date" datetime="<?php echo get_the_date('d-m-Y'); ?>"><?php echo get_the_date('d.m.Y'); ?></time>
 								<? } else if ( is_page() ) { ?>
 									<h1 class="hero__title"><?php the_title();?></h1>
 								<? } else if ( is_404() ) { ?>
@@ -135,7 +135,7 @@
 										<strong>81</strong>
 										<span>domain dispute won</span>
 									</div>
-									<div class="statistic-card statistic-pat fade-in-bottom"">
+									<div class="statistic-card statistic-pat fade-in-bottom">
 										<strong>3792</strong>
 										<span>patents obtained</span>
 									</div>
