@@ -148,12 +148,6 @@ function ipitledger_theme_styles() {
 	if ( is_front_page() || is_single() ) {
 		wp_enqueue_style( 'ipitledger-theme-virtual-swiper-css', "https://unpkg.com/swiper@8/swiper-bundle.min.css", array(), null );
 	}
-
-	if (!is_front_page() || !is_single()) {
-		add_filter( 'wpcf7_load_js', '__return_false' );
-		add_filter( 'wpcf7_load_css', '__return_false' );
-	}
-
 	wp_enqueue_style( 'ipitledger-theme-style', get_stylesheet_uri(), array(), $version, null);
 }
 add_action( 'wp_enqueue_scripts', 'ipitledger_theme_styles' );
@@ -192,20 +186,16 @@ require get_template_directory() . '/inc/custom-fields.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
-
 /**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
 
-
 // ** Custom code
 add_filter( 'nav_menu_css_class', 'change_menu_item_css_classes', 10, 4 );
-
 function change_menu_item_css_classes( $classes, $item, $args, $depth ) {
 	if( 'mainmenu' === $args->theme_location ){
 		$classes[] = 'list__item';
 	}
-
 	return $classes;
 }
