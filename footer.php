@@ -48,7 +48,11 @@
 			</div>
 		</footer>
 	</div>
-	<?php get_template_part('template/micromodal') ?>
+	<?php
+		if (is_front_page() || is_single()) {
+			get_template_part('template/micromodal');
+		}
+	?>
 	</body>
 
 	<?php wp_footer();?>

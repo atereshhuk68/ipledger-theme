@@ -149,6 +149,11 @@ function ipitledger_theme_styles() {
 		wp_enqueue_style( 'ipitledger-theme-virtual-swiper-css', "https://unpkg.com/swiper@8/swiper-bundle.min.css", array(), null );
 	}
 
+	if (!is_front_page() || !is_single()) {
+		add_filter( 'wpcf7_load_js', '__return_false' );
+		add_filter( 'wpcf7_load_css', '__return_false' );
+	}
+
 	wp_enqueue_style( 'ipitledger-theme-style', get_stylesheet_uri(), array(), $version, null);
 }
 add_action( 'wp_enqueue_scripts', 'ipitledger_theme_styles' );
