@@ -42,7 +42,8 @@ let webpackConf = {
 	entry: {
 		all: path.resolve(__dirname, 'source/js/index.js'),
 		["virtual-select"]: path.resolve(__dirname, 'source/js/vs.js'),
-		sliders: path.resolve(__dirname, 'source/js/sliders.js')
+		sliders: path.resolve(__dirname, 'source/js/sliders.js'),
+		form: path.resolve(__dirname, 'source/js/form.js')
 	},
 	watch: isDev,
 	mode: isDev ? 'development' : 'production',
