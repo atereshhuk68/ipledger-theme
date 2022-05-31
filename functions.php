@@ -170,7 +170,7 @@ add_action('wp_enqueue_scripts', function () {
     if (is_front_page() || is_single()) {
         wp_enqueue_script('ipitledger-theme-swiper', "https://unpkg.com/swiper@8/swiper-bundle.min.js", array(), null, true);
         wp_enqueue_script('ipitledger-theme-sliders', get_template_directory_uri() . "/assets/js/sliders.js", null, $version, true);
-				wp_enqueue_script('ipitledger-theme-captcha', "https://www.google.com/recaptcha/api.js?render=6LdRMS0gAAAAAEoIuznQzhlCa1f3TecdFU9ZdiqI", null, null, false);
+				wp_enqueue_script('ipitledger-theme-captcha', "https://www.google.com/recaptcha/api.js?render=" . carbon_get_theme_option('ipledger_captcha_public_key'), null, null, false);
         wp_enqueue_script('ipitledger-theme-form', get_template_directory_uri() . "/assets/js/form.js", null, $version, true);
     }
     wp_enqueue_script('ipitledger-theme-all', get_template_directory_uri() . "/assets/js/all.js", null, $version, true);
