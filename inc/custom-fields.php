@@ -173,8 +173,12 @@ function register_carbon_fields() {
 	// Secret key
 	Container::make( 'theme_options', 'Captcha' )
     ->add_fields( array(
+				Field::make( 'text', 'ipledger_captcha_public_key', __( 'Public captcha key' ) )
+				->set_required( true )
+				->set_width(50),
         Field::make( 'text', 'ipledger_captcha_secret_key', __( 'Secret captcha key' ) )
 				->set_required( true )
+				->set_width(50)
     ) );
 }
 
